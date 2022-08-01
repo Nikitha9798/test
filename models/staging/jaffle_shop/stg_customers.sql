@@ -5,7 +5,9 @@ with customers as (
         first_name,
         last_name
 
-    from raw.jaffle_shop.customers
+    --from raw.jaffle_shop.customers  // If we write like this we have to use ref function 
+                                    --// To avoid ref function we use sources
+       from {{ source('jaffle_shop','customers')}}
 
 )
 
